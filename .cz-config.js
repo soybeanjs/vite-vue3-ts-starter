@@ -13,7 +13,7 @@ module.exports = {
     { value: 'revert', name: 'revert:   回滚 commit' }
   ],
   scopes: [
-		['projects', '项目搭建'],
+    ['projects', '项目搭建'],
     ['components', '组件相关'],
     ['hooks', 'hook 相关'],
     ['utils', 'utils 相关'],
@@ -27,7 +27,7 @@ module.exports = {
     return {
       value,
       name: `${value.padEnd(30)} (${description})`
-    }
+    };
   }),
   messages: {
     type: '确保本次提交遵循 Angular 规范！\n选择你要提交的类型：',
@@ -42,4 +42,4 @@ module.exports = {
   allowBreakingChanges: ['feat', 'fix'],
   subjectLimit: 100,
   breaklineChar: '|'
-}
+};
