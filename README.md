@@ -1,4 +1,3 @@
-# Vite-TS-Vue3-Starter
+# vite-vue3-ts-starter
 
-This template is based on the template created by @vitejs/app, which add eslint、prettier、commitlint to format code.
-
+This template is based on the template created by create-vue, which add eslint、prettier、husky、commitlint to format code, and add unit test tool vitest.

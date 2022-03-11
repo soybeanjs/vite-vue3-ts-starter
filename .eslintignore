@@ -9,6 +9,5 @@ lib
 /dist/
 /public
 /docs
-.vscode
 .local
 package.json
