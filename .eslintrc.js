@@ -4,12 +4,7 @@ module.exports = {
     es2021: true,
     'vue/setup-compiler-macros': true,
   },
-  globals: {
-    defineProps: 'readonly',
-    defineEmits: 'readonly',
-    defineExpose: 'readonly',
-    withDefaults: 'readonly',
-  },
+  globals: {},
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 12,
@@ -46,6 +41,11 @@ module.exports = {
             position: 'before',
           },
           {
+            pattern: 'vuex',
+            group: 'external',
+            position: 'before',
+          },
+          {
             pattern: 'pinia',
             group: 'external',
             position: 'before',
@@ -73,11 +73,6 @@ module.exports = {
           },
           {
             pattern: '@/plugins',
-            group: 'internal',
-            position: 'before',
-          },
-          {
-            pattern: '@/layouts',
             group: 'internal',
             position: 'before',
           },
@@ -145,6 +140,7 @@ module.exports = {
         pathGroupsExcludedImportTypes: [
           'vue',
           'vue-router',
+          'vuex',
           'pinia',
           // 'naive-ui'
         ],
@@ -167,7 +163,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.ts', '*.vue'],
+      files: ['*.vue'],
       rules: {
         'no-undef': 'off',
       },
