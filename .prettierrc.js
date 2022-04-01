@@ -1,5 +1,5 @@
 module.exports = { // https://prettier.io/docs/en/options.html
-  arrowParens: 'always',
+  arrowParens: 'avoid',
   bracketSameLine: false,
   bracketSpacing: true,
   embeddedLanguageFormatting: 'auto',
