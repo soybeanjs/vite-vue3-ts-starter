@@ -57,7 +57,7 @@ module.exports = {
           //   position: 'before'
           // },
           {
-            pattern: '@/config',
+            pattern: '@/plugins',
             group: 'internal',
             position: 'before'
           },
@@ -67,12 +67,12 @@ module.exports = {
             position: 'before'
           },
           {
-            pattern: '@/enum',
+            pattern: '@/config',
             group: 'internal',
             position: 'before'
           },
           {
-            pattern: '@/plugins',
+            pattern: '@/enum',
             group: 'internal',
             position: 'before'
           },
@@ -142,6 +142,7 @@ module.exports = {
           'vue-router',
           'vuex',
           'pinia'
+          // ui framework, such as "naive-ui"
           // 'naive-ui'
         ]
       }

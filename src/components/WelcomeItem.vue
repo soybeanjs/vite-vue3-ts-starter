@@ -11,7 +11,6 @@
     </div>
   </div>
 </template>
-
 <style scoped>
 .item {
   margin-top: 2rem;

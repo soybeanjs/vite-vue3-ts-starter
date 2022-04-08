@@ -1,12 +1,20 @@
 import { createApp } from 'vue';
-import { createPinia } from 'pinia';
-import router from './router';
+import { setupRouter } from './router';
+import { setupStore } from './stores';
 import App from './App.vue';
 
-const app = createApp(App);
+async function setupApp() {
+  // create app instance
+  const app = createApp(App);
 
-app.use(createPinia());
+  // install store plugin: pinia
+  setupStore(app);
 
-app.use(router);
+  // install vue-router
+  await setupRouter(app);
 
-app.mount('#app');
+  // mount app on the dom
+  app.mount('#app');
+}
+
+setupApp();
