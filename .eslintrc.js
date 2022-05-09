@@ -57,7 +57,7 @@ module.exports = {
           //   position: 'before'
           // },
           {
-            pattern: '@/plugins',
+            pattern: '@/config',
             group: 'internal',
             position: 'before'
           },
@@ -67,12 +67,12 @@ module.exports = {
             position: 'before'
           },
           {
-            pattern: '@/config',
+            pattern: '@/enum',
             group: 'internal',
             position: 'before'
           },
           {
-            pattern: '@/enum',
+            pattern: '@/plugins',
             group: 'internal',
             position: 'before'
           },
@@ -156,9 +156,17 @@ module.exports = {
         ignorePropertyModificationsFor: ['state', 'acc', 'e']
       }
     ],
-    'no-plusplus': 'off',
+    'no-shadow': 'off',
     'no-unused-vars': 'off',
     'no-use-before-define': 'off',
+    'vue/multi-word-component-names': [
+      'error',
+      {
+        ignores: ['index']
+      }
+    ],
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true, varsIgnorePattern: '^_' }],
     '@typescript-eslint/no-use-before-define': ['error', { classes: true, functions: false, typedefs: false }]
   },

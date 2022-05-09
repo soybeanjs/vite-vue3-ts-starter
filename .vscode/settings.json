@@ -36,7 +36,9 @@
 		"composables": "hook",
 		"directive": "tools",
 		"directives": "tools",
-		"business": "core"
+		"business": "core",
+		"request": "api",
+		"adapter": "middleware"
 	},
 	"terminal.integrated.cursorStyle": "line",
 	"terminal.integrated.fontSize": 14,
