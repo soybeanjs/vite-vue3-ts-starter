@@ -177,7 +177,7 @@ module.exports = {
         pathGroupsExcludedImportTypes: ['vue', 'vue-router', 'vuex', 'pinia', 'naive-ui']
       }
     ],
-    'import/no-unresolved': ['error', { ignore: ['uno.css', '~icons/*', 'virtual:svg-icons-register'] }],
+    'import/no-unresolved': ['error', { ignore: ['uno.css'] }],
     'import/prefer-default-export': 'off',
     'max-classes-per-file': 'off',
     'no-param-reassign': [
