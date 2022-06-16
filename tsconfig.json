@@ -7,6 +7,7 @@
     "strict": true,
     "esModuleInterop": true,
     "jsx": "preserve",
+		"allowJs": true,
     "skipLibCheck": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -15,11 +16,12 @@
     "forceConsistentCasingInFileNames": true,
 		"paths": {
 			"@/*": ["./src/*"],
+			"~/*": ["./*"]
 		},
 		"types": [
 			"vite/client",
-			"node",
+			"node"
 		]
 	},
-	"exclude": ["dist", "node_modules"],
+	"exclude": ["dist", "node_modules"]
 }

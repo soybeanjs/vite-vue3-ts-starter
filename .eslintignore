@@ -10,3 +10,4 @@ lib
 /public
 /docs
 .local
+components.d.ts

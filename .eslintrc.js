@@ -21,9 +21,47 @@ module.exports = {
     '@vue/eslint-config-prettier',
     '@vue/typescript/recommended'
   ],
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        'no-undef': 'off'
+      }
+    },
+    {
+      files: ['*.html'],
+      rules: {
+        'vue/comment-directive': 'off'
+      }
+    }
+  ],
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['~', '.'],
+          ['@', './src']
+        ],
+        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts']
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts']
+      }
+    }
+  },
   rules: {
-    'import/extensions': 'off',
-    'import/no-extraneous-dependencies': 'off',
+    'import/extensions': [
+      'warn',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        mjs: 'never',
+        ts: 'never',
+        tsx: 'never'
+      }
+    ],
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true, peerDependencies: true }],
     'import/order': [
       'error',
       {
@@ -50,12 +88,11 @@ module.exports = {
             group: 'external',
             position: 'before'
           },
-          // ui framework, such as "naive-ui"
-          // {
-          //   pattern: 'naive-ui',
-          //   group: 'external',
-          //   position: 'before'
-          // },
+          {
+            pattern: 'naive-ui',
+            group: 'external',
+            position: 'before'
+          },
           {
             pattern: '@/config',
             group: 'internal',
@@ -137,18 +174,12 @@ module.exports = {
             position: 'before'
           }
         ],
-        pathGroupsExcludedImportTypes: [
-          'vue',
-          'vue-router',
-          'vuex',
-          'pinia'
-          // ui framework, such as "naive-ui"
-          // 'naive-ui'
-        ]
+        pathGroupsExcludedImportTypes: ['vue', 'vue-router', 'vuex', 'pinia', 'naive-ui']
       }
     ],
-    'import/no-unresolved': 'off',
+    'import/no-unresolved': ['error', { ignore: ['uno.css', '~icons/*', 'virtual:svg-icons-register'] }],
     'import/prefer-default-export': 'off',
+    'max-classes-per-file': 'off',
     'no-param-reassign': [
       'error',
       {
@@ -165,23 +196,16 @@ module.exports = {
         ignores: ['index']
       }
     ],
+    '@typescript-eslint/no-empty-interface': [
+      'error',
+      {
+        allowSingleExtends: true
+      }
+    ],
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-shadow': 'error',
     '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true, varsIgnorePattern: '^_' }],
     '@typescript-eslint/no-use-before-define': ['error', { classes: true, functions: false, typedefs: false }]
-  },
-  overrides: [
-    {
-      files: ['*.vue'],
-      rules: {
-        'no-undef': 'off'
-      }
-    },
-    {
-      files: ['*.html'],
-      rules: {
-        'vue/comment-directive': 'off'
-      }
-    }
-  ]
+  }
 };
