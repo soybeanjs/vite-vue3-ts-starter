@@ -1,7 +1,7 @@
 import { defineConfig, presetUno } from 'unocss';
 
 export default defineConfig({
-  exclude: ['node_modules', '.git', 'dist'],
+  exclude: ['node_modules', '.git', '.husky', '.vscode', 'dist', 'public', 'build', 'mock', './stats.html'],
   presets: [presetUno({ dark: 'class' })],
   shortcuts: {
     'wh-full': 'w-full h-full',
@@ -38,8 +38,5 @@ export default defineConfig({
     'nowrap-hidden': 'whitespace-nowrap overflow-hidden',
     'ellipsis-text': 'nowrap-hidden overflow-ellipsis',
     'transition-base': 'transition-all duration-300 ease-in-out'
-  },
-  theme: {
-    colors: {}
   }
 });

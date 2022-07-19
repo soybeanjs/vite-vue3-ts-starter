@@ -1,10 +1,14 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
-    'vue/setup-compiler-macros': true
+    es2021: true
   },
-  globals: {},
+  globals: {
+    PROJECT_BUILD_TIME: 'readonly',
+    AMap: 'readonly',
+    BMap: 'readonly',
+    TMap: 'readonly'
+  },
   parser: 'vue-eslint-parser',
   parserOptions: {
     ecmaVersion: 12,
@@ -21,34 +25,6 @@ module.exports = {
     '@vue/eslint-config-prettier',
     '@vue/typescript/recommended'
   ],
-  overrides: [
-    {
-      files: ['*.vue'],
-      rules: {
-        'no-undef': 'off'
-      }
-    },
-    {
-      files: ['*.html'],
-      rules: {
-        'vue/comment-directive': 'off'
-      }
-    }
-  ],
-  settings: {
-    'import/resolver': {
-      alias: {
-        map: [
-          ['~', '.'],
-          ['@', './src']
-        ],
-        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts']
-      },
-      node: {
-        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', '.d.ts']
-      }
-    }
-  },
   rules: {
     'import/extensions': [
       'warn',
@@ -58,7 +34,8 @@ module.exports = {
         jsx: 'never',
         mjs: 'never',
         ts: 'never',
-        tsx: 'never'
+        tsx: 'never',
+        mts: 'never'
       }
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true, peerDependencies: true }],
@@ -134,7 +111,17 @@ module.exports = {
             position: 'before'
           },
           {
+            pattern: '@/service',
+            group: 'internal',
+            position: 'before'
+          },
+          {
             pattern: '@/store',
+            group: 'internal',
+            position: 'before'
+          },
+          {
+            pattern: '@/context',
             group: 'internal',
             position: 'before'
           },
@@ -145,11 +132,6 @@ module.exports = {
           },
           {
             pattern: '@/hooks',
-            group: 'internal',
-            position: 'before'
-          },
-          {
-            pattern: '@/service',
             group: 'internal',
             position: 'before'
           },
@@ -167,17 +149,12 @@ module.exports = {
             pattern: '@/**',
             group: 'internal',
             position: 'before'
-          },
-          {
-            pattern: '@/interface',
-            group: 'internal',
-            position: 'before'
           }
         ],
         pathGroupsExcludedImportTypes: ['vue', 'vue-router', 'vuex', 'pinia', 'naive-ui']
       }
     ],
-    'import/no-unresolved': ['error', { ignore: ['uno.css'] }],
+    'import/no-unresolved': ['error', { ignore: ['uno.css', '~icons/*', 'virtual:svg-icons-register'] }],
     'import/prefer-default-export': 'off',
     'max-classes-per-file': 'off',
     'no-param-reassign': [
@@ -196,6 +173,7 @@ module.exports = {
         ignores: ['index']
       }
     ],
+    '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports', disallowTypeAnnotations: false }],
     '@typescript-eslint/no-empty-interface': [
       'error',
       {
@@ -205,7 +183,44 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-shadow': 'error',
-    '@typescript-eslint/no-unused-vars': ['warn', { ignoreRestSiblings: true, varsIgnorePattern: '^_' }],
+    '@typescript-eslint/no-unused-vars': [
+      'error',
+      { vars: 'all', args: 'all', ignoreRestSiblings: false, varsIgnorePattern: '^_', argsIgnorePattern: '^_' }
+    ],
     '@typescript-eslint/no-use-before-define': ['error', { classes: true, functions: false, typedefs: false }]
-  }
+  },
+  settings: {
+    'import/resolver': {
+      alias: {
+        map: [
+          ['~', '.'],
+          ['@', './src']
+        ],
+        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', 'mts', '.d.ts']
+      },
+      node: {
+        extensions: ['.js', '.jsx', '.mjs', '.ts', '.tsx', 'mts', '.d.ts']
+      }
+    }
+  },
+  overrides: [
+    {
+      files: ['*.vue'],
+      rules: {
+        'no-undef': 'off'
+      }
+    },
+    {
+      files: ['*.html'],
+      rules: {
+        'vue/comment-directive': 'off'
+      }
+    },
+    {
+      files: ['*.json'],
+      rules: {
+        'no-unused-expressions': 'off'
+      }
+    }
+  ]
 };

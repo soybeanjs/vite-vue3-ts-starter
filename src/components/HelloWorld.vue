@@ -10,6 +10,7 @@
 </template>
 <script setup lang="ts">
 interface Props {
+  /** 信息 */
   msg: string;
 }
 
