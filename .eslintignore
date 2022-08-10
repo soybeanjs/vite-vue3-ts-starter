@@ -1,13 +1,1 @@
-*.sh
-node_modules
-lib
-*.md
-*.woff
-*.ttf
-.vscode
-.idea
-/dist/
-/public
-/docs
-.local
 components.d.ts
